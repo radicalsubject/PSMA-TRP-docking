@@ -1,3 +1,2 @@
-#!bin/bash
-source ~/.bashrc
-conda activate vina
+#!/bin/bash -i
+source ~/.bashrc && conda activate vina
