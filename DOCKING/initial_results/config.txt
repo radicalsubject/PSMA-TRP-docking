@@ -1,0 +1,4 @@
+Ligand_free_2oot
+spacing    0.347
+npts       88 88 90
+center    22.172 54.815 39.876

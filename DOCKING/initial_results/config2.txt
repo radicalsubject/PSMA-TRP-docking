@@ -1,0 +1,12 @@
+receptor = Ligand_free_2oot.pdbqt
+ligand = ligand_model1.pdbqt
+
+center_x = 22.172
+center_y = 54.815
+center_z = 39.876
+
+size_x = 88
+size_y = 88
+size_z = 90
+
+exhaustiveness = 8
