@@ -1,2 +1,2 @@
 #!/bin/bash -i
-source ~/.bashrc && conda activate vina
+source ~/.bashrc &&  conda env create -f env.yml || conda env update -f env.yml && conda activate vina
