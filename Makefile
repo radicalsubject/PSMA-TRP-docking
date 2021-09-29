@@ -42,7 +42,7 @@ help:
 goto_app_src:
 	-cd ~/vendor_bot/
 
-#  starts jupyter
+#  reloads .bashrc, activates&&updates conda environment, starts jupyter-notebook
 start:
 	-$(SHELL_CMD) $(c)
 
