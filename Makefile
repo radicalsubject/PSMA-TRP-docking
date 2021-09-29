@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 MONGOD_STARTED := $(shell systemctl is-active mongod)
 DOCKER_COMPOSE_CMD := docker-compose -f docker-compose.yml
