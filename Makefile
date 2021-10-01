@@ -1,3 +1,6 @@
+.ONESHELL:
+# this is to run directives from makefile in one shell, not separate shells
+
 SHELL := /bin/bash
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 MONGOD_STARTED := $(shell systemctl is-active mongod)
