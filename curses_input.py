@@ -1,9 +1,12 @@
 import curses
+from curses import wrapper
 from curses.textpad import Textbox, rectangle
 stdscr = curses.initscr()
 curses.noecho()
 curses.cbreak()
 stdscr.keypad(True)
+
+
 def main(stdscr):
         stdscr.addstr(0, 0, "Enter IM message: (hit Ctrl-G to send)")
 
@@ -21,11 +24,5 @@ def main(stdscr):
         print(message)
         return message
 
-# if __name__ == "__main__":
-text = main(stdscr)
-print(text)
-curses.nocbreak()
-stdscr.keypad(False)
-curses.echo()
-curses.endwin()
-print(text)
+if __name__ == "__main__":
+        text = wrapper(main)
