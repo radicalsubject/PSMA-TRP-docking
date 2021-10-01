@@ -25,6 +25,7 @@ HELP_TARGET_MAX_CHAR_NUM=20
 	restart \
 	logs \
 	logs_api \
+	notebook \
 	ps \
 
 #  Show help
@@ -53,8 +54,8 @@ start:
 
 notebook:
 	-python ./psswdgen.py | grep "sha1" 
-# sudo bash ./run_scipynotebook.sh 'sha1:1f44b533bdd1:34e68851b0bb05a774ed26b60f839a045f3ab022'
 
+# sudo bash ./run_scipynotebook.sh 'sha1:1f44b533bdd1:34e68851b0bb05a774ed26b60f839a045f3ab022'
 logs:
 	-$(DOCKER_COMPOSE_CMD) logs --tail=100 -f $(c)
 
