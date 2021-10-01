@@ -56,6 +56,8 @@ start:
 notebook:
 	-python ./psswdgen.py | grep "sha1" > psswd && \
 		ls && \
+		cat psswd && \
+		echo "$(cat psswd)" && \
 		echo 'bash ./run_scipynotebook.sh "$(cat psswd)"'
 
 # logs
