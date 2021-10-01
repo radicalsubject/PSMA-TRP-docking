@@ -4,6 +4,7 @@ from notebook.auth.security import passwd_check
 
 if sys.argv:
     password = sys.argv[0]
+    print(password)
 else:
     password = input("type password: ")
 # password = input()
