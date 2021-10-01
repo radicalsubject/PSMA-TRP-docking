@@ -23,9 +23,9 @@ HELP_TARGET_MAX_CHAR_NUM=20
 	start \
 	stop \
 	restart \
+	notebook \
 	logs \
 	logs_api \
-	notebook \
 	ps \
 
 #  Show help
