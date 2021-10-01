@@ -59,7 +59,7 @@ notebook:
 		ls && \
 		cat psswd && \
 		echo "$(cat_psswd)" && \
-		$(shell cat psswd) && \
+		echo "$(shell cat psswd)" && \
 		echo 'bash ./run_scipynotebook.sh "$(cat_psswd)"'
 
 # logs
