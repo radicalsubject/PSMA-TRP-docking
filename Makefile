@@ -32,7 +32,7 @@ help:
 	@echo '  ${YELLOW}make${RESET} ${GREEN}<target>${RESET}'
 	@echo ''
 	@echo 'Targets:'
-	@awk '/^[a-zA-Z\-0-9]+:/ { \
+	@awk '/^[a-zA-Z\-0-9_]+:/ { \
 		helpMessage = match(lastLine, /^# (.*)/); \
 		if (helpMessage) { \
 			helpCommand = substr($$1, 0, index($$1, ":")-1); \
