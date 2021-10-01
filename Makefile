@@ -2,7 +2,8 @@
 # this is to run directives from makefile in one shell, not separate shells
 
 SHELL := /bin/bash
-CONDA_PATH := $(conda info | grep -i 'base environment' | awk '{print $4}')
+CONDA_PATH := /home/ofedorov/anaconda3
+# CONDA_PATH := $(conda info | grep -i 'base environment' | awk '{print $4}')
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 MONGOD_STARTED := $(shell systemctl is-active mongod)
 DOCKER_COMPOSE_CMD := docker-compose -f docker-compose.yml
