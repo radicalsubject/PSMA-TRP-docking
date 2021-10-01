@@ -55,7 +55,7 @@ start:
 # sudo bash ./run_scipynotebook.sh 'sha1:1f44b533bdd1:34e68851b0bb05a774ed26b60f839a045f3ab022'
 notebook:
 	-python ./psswdgen.py | grep "sha1" > psswd && \
-		ls \
+		ls && \
 		echo 'bash ./run_scipynotebook.sh "$(cat psswd)"'
 
 # logs
