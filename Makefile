@@ -47,7 +47,7 @@ goto_app_src:
 
 #  reloads .bashrc, activates&&updates conda environment, starts jupyter-notebook
 start:
-	-$(SHELL_CMD) $(c)
+	-bash -c "$(SHELL_CMD) $(c)"
 
 logs:
 	-$(DOCKER_COMPOSE_CMD) logs --tail=100 -f $(c)
