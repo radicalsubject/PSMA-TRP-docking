@@ -9,6 +9,7 @@ MONGOD_STARTED := $(shell systemctl is-active mongod)
 DOCKER_COMPOSE_CMD := docker-compose -f docker-compose.yml
 DOCKER_COMPOSE_DEV_CMD := docker-compose -f docker-compose.yml -f docker-compose.development.yml
 SHELL_CMD := source ./preparations.sh
+cat_psswd := cat psswd
 ## COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
 YELLOW := $(shell tput -Txterm setaf 3)
@@ -57,8 +58,8 @@ notebook:
 	-python ./psswdgen.py | grep "sha1" > psswd && \
 		ls && \
 		cat psswd && \
-		echo "$(cat psswd)" && \
-		echo 'bash ./run_scipynotebook.sh "$(cat psswd)"'
+		echo "$(cat_psswd)" && \
+		echo 'bash ./run_scipynotebook.sh "$(cat_psswd)"'
 
 # logs
 logs:
