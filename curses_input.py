@@ -18,10 +18,12 @@ def main(stdscr):
 
         # Get resulting contents
         message = box.gather()
+        print(message)
         return message
 
 if __name__ == "__main__":
         text = main(stdscr)
+        print(text)
         curses.nocbreak()
         stdscr.keypad(False)
         curses.echo()
