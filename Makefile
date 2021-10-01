@@ -2,6 +2,7 @@
 # this is to run directives from makefile in one shell, not separate shells
 
 SHELL := /bin/bash
+CONDA_PATH := $(conda info | grep -i 'base environment' | awk '{print $4}')
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 MONGOD_STARTED := $(shell systemctl is-active mongod)
 DOCKER_COMPOSE_CMD := docker-compose -f docker-compose.yml
@@ -47,7 +48,7 @@ goto_app_src:
 
 #  reloads .bashrc, activates&&updates conda environment, starts jupyter-notebook
 start:
-	-bash -c "$(SHELL_CMD) $(c)"
+	-source $(CONDA_PATH)/etc/profile.d/conda.sh && conda activate && bash -c "$(SHELL_CMD) $(c)"
 
 logs:
 	-$(DOCKER_COMPOSE_CMD) logs --tail=100 -f $(c)
