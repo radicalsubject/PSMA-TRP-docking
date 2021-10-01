@@ -2,11 +2,11 @@ import sys
 from notebook.auth import passwd
 from notebook.auth.security import passwd_check
 
-if len(sys.argv)==2:
-    password = sys.argv[1]
+# if len(sys.argv)==2:
+#     password = sys.argv[1]
 
-else:
-    password = input("type password: ")
+# else:
+password = input("type password: ")
 # password = input()
 hashed_argon2 = passwd(password)
 hashed_sha1 = passwd(password, 'sha1')
