@@ -1,5 +1,5 @@
 #!/bin/bash -i
-source ~/.bashrc && \
+source /home/ofedorov/anaconda3/etc/profile.d/conda.sh && \
     conda activate && \
     conda env create -f env.yml || \
     conda env update -f env.yml && \
