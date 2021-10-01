@@ -51,6 +51,10 @@ goto_app_src:
 start:
 	-source $(CONDA_PATH)/etc/profile.d/conda.sh && conda activate && bash -c "$(SHELL_CMD) $(c)"
 
+notebook:
+	-python ./psswdgen.py | grep "sha1" 
+# sudo bash ./run_scipynotebook.sh 'sha1:1f44b533bdd1:34e68851b0bb05a774ed26b60f839a045f3ab022'
+
 logs:
 	-$(DOCKER_COMPOSE_CMD) logs --tail=100 -f $(c)
 
