@@ -6,7 +6,7 @@ then
     hashcode=$(python ./psswdgen.py $password)
     echo $password
     echo $hashcode
-    echo "$(docker run -p 40001:8888 -e NB_USER=asya -w /home/asya -e CHOWN_HOME=yes -v '${PWD}':/home/asya/work -e GRANT_SUDO=yes --user root jupyter/scipy-notebook jupyter-notebook --NotebookApp.password=$hashcode --allow-root)"
+    # echo "$(docker run -p 40001:8888 -e NB_USER=asya -w /home/asya -e CHOWN_HOME=yes -v '${PWD}':/home/asya/work -e GRANT_SUDO=yes --user root jupyter/scipy-notebook jupyter-notebook --NotebookApp.password=$hashcode --allow-root)"
     # docker run -p 40001:8888 -e NB_USER=asya -w /home/asya -e CHOWN_HOME=yes -v "${PWD}":/home/asya/work -e GRANT_SUDO=yes --user root jupyter/scipy-notebook jupyter-notebook --NotebookApp.password=$hashcode --allow-root
 else
     docker run -p 40001:8888 -e NB_USER=asya -w /home/asya -e CHOWN_HOME=yes -v "${PWD}":/home/asya/work -e GRANT_SUDO=yes --user root jupyter/scipy-notebook jupyter-notebook --NotebookApp.password=$1 --allow-root
