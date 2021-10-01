@@ -21,11 +21,11 @@ def main(stdscr):
         print(message)
         return message
 
-if __name__ == "__main__":
-        text = main(stdscr)
-        print(text)
-        curses.nocbreak()
-        stdscr.keypad(False)
-        curses.echo()
-        curses.endwin()
-        print(text)
+# if __name__ == "__main__":
+text = main(stdscr)
+print(text)
+curses.nocbreak()
+stdscr.keypad(False)
+curses.echo()
+curses.endwin()
+print(text)
