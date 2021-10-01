@@ -2,8 +2,8 @@ import sys
 from notebook.auth import passwd
 from notebook.auth.security import passwd_check
 
-if sys.argv:
-    password = sys.argv[0]
+if len(sys.argv) < 2:
+    password = sys.argv[1]
     print(password)
 else:
     password = input("type password: ")
