@@ -9,7 +9,6 @@ MONGOD_STARTED := $(shell systemctl is-active mongod)
 DOCKER_COMPOSE_CMD := docker-compose -f docker-compose.yml
 DOCKER_COMPOSE_DEV_CMD := docker-compose -f docker-compose.yml -f docker-compose.development.yml
 SHELL_CMD := source ./preparations.sh
-cat_psswd := $(shell cat psswd)
 ## COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
 YELLOW := $(shell tput -Txterm setaf 3)
@@ -55,7 +54,8 @@ start:
 
 # sudo bash ./run_scipynotebook.sh 'sha1:1f44b533bdd1:34e68851b0bb05a774ed26b60f839a045f3ab022'
 notebook:
-	-echo 'sudo bash ./run_scipynotebook.sh "$(shell python ./psswdgen.py | grep 'sha1')"'
+	-echo "enter passwd: " && \
+		echo 'sudo bash ./run_scipynotebook.sh "$(shell python ./psswdgen.py | grep 'sha1')"'
 
 # logs
 logs:
