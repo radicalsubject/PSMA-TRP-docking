@@ -60,7 +60,7 @@ notebook:
 		cat psswd && \
 		echo "$(cat_psswd)" && \
 		echo "$(shell cat psswd)" && \
-		echo 'bash ./run_scipynotebook.sh "$(cat_psswd)"'
+		echo 'sudo bash ./run_scipynotebook.sh "$(cat_psswd)"'
 
 # logs
 logs:
