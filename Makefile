@@ -51,7 +51,7 @@ goto_app_src:
 
 #  reloads .bashrc, activates&&updates conda environment, starts jupyter-notebook
 start:
-	-source $(CONDA_PATH)/etc/profile.d/conda.sh && conda activate && bash -c "$(SHELL_CMD) $(c)"
+	-docker exec -ti notebook sh -c "source $(CONDA_PATH)/etc/profile.d/conda.sh && conda activate && bash -c '$(SHELL_CMD) $(c)'"
 
 #  runs container with scipy jupyter notebook
 notebook:
@@ -59,7 +59,7 @@ notebook:
 
 #  updates env and launches vina notebook
 vina:
-	-bash ./maintenance/env_preparations.sh
+	-docker exec -ti notebook sh -c "bash ./maintenance/env_preparations.sh"
 
 #  logs
 logs:
