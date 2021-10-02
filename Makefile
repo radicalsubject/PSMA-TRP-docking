@@ -6,9 +6,9 @@ CONDA_PATH := /home/ofedorov/anaconda3
 # CONDA_PATH := $(conda info | grep -i 'base environment' | awk '{print $4}')
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 MONGOD_STARTED := $(shell systemctl is-active mongod)
-DOCKER_COMPOSE_CMD := docker-compose -f docker-compose.yml
+DOCKER_CMD := docker
 DOCKER_COMPOSE_DEV_CMD := docker-compose -f docker-compose.yml -f docker-compose.development.yml
-SHELL_CMD := source ./preparations.sh
+SHELL_CMD := source ./maintenance/preparations.sh
 ## COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
 YELLOW := $(shell tput -Txterm setaf 3)
@@ -52,13 +52,17 @@ goto_app_src:
 start:
 	-source $(CONDA_PATH)/etc/profile.d/conda.sh && conda activate && bash -c "$(SHELL_CMD) $(c)"
 
-# sudo bash ./run_scipynotebook.sh 'sha1:1f44b533bdd1:34e68851b0bb05a774ed26b60f839a045f3ab022'
+# runs container with scipy jupyter notebook
 notebook:
 	-bash ./maintenance/run_scipynotebook.sh
 
+# updates env and launches vina notebook
+vina:
+	-bash ./maintenance/env_preparations.sh
+
 # logs
 logs:
-	-$(DOCKER_COMPOSE_CMD) logs --tail=100 -f $(c)
+	-$(DOCKER_CMD) logs --tail=100 -f $(c)
 
 #  lists containers in docker-compose
 ps:
