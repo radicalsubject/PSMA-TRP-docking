@@ -2,8 +2,8 @@
 
 grepresponse=$(docker ps -a | grep notebook | grep -oE '[^ ]+$')
 echo $grepresponse
-echo [ $grepresponse -eq '' ]
-if [ $grepresponse -eq '' ]
+echo $([ $grepresponse -eq 'notebook' ])
+if [ $grepresponse -eq 'notebook' ]
 then
     docker start notebook
 else
