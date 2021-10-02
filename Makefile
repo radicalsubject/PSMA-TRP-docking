@@ -71,4 +71,4 @@ ps:
 
 #  stops docker notebook container and removes it
 tranclucate:
-	-docker kill notebook && docker rm notebook -f
+	-docker kill notebook &> /dev/null && docker rm notebook -f &> /dev/null
