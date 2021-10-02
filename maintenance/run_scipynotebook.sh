@@ -2,8 +2,9 @@
 
 grepresponse=$(docker ps -a | grep notebook | grep -oE '[^ ]+$')
 echo $grepresponse
-echo $([ $grepresponse -eq 'notebook' ])
-if [ $grepresponse -eq 'notebook' ]
+echo $([ $grepresponse = 'notebook' ])
+# string comparisons made by = and integer by -eq !!!
+if [ $grepresponse = 'notebook' ]
 then
     docker start notebook
 else
