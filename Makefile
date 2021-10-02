@@ -69,6 +69,6 @@ logs:
 ps:
 	-docker ps
 
-#  stops docker notebook container
-stop:
-	-docker kill notebook
+#  stops docker notebook container and removes it
+tranclucate:
+	-docker kill notebook && docker rm notebook -f
