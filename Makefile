@@ -56,15 +56,15 @@ start:
 
 #  runs container with scipy jupyter notebook
 notebook:
-	-bash ./maintenance/run_scipynotebook.sh
+	-source ./maintenance/run_scipynotebook.sh
 
 #  creates or updates vina env
 env:
 	-docker exec -ti notebook /bin/bash -c "bash ./work/maintenance/env_preparations.sh"
 
-#  updates env and launches vina notebook
+#  launches vina notebook
 vina:
-	-docker exec -ti notebook /bin/bash -c "conda run -n vina /bin/bash -c 'bash ./work/maintenance/run_vina_notebook.sh'"
+	-docker exec -ti notebook /bin/bash -c "conda run -n vina /bin/bash -c 'source ./work/maintenance/run_vina_notebook.sh'"
 
 #  logs
 logs:
