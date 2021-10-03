@@ -25,6 +25,7 @@ HELP_TARGET_MAX_CHAR_NUM=20
 	stop \
 	restart \
 	notebook \
+	env \
 	vina \
 	logs \
 	ps \
@@ -57,9 +58,13 @@ start:
 notebook:
 	-bash ./maintenance/run_scipynotebook.sh
 
+#  creates or updates vina env
+env:
+	-docker exec -ti notebook sh -c "bash ./work/maintenance/env_preparations.sh"
+
 #  updates env and launches vina notebook
 vina:
-	-docker exec -ti notebook sh -c "bash ./maintenance/env_preparations.sh"
+	-docker exec -ti notebook /bin/bash -c "conda run -n vina /bin/bash -c 'bash ./work/maintenance/run_vina_notebook.sh'"
 
 #  logs
 logs:
