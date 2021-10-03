@@ -7,7 +7,9 @@ source ~/.bashrc
 if [ "$grepresponse" = "notebook" ]
 then
     docker start notebook
+    echo "notebook started from previously existed cotainer"
 else
+    echo "im going to to create new container"
     if [ $# -eq 0 ] 
     then
         read -p "set password: " password
