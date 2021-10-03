@@ -3,6 +3,7 @@
 grepresponse=$(docker ps -a | grep notebook | grep -oE '[^ ]+$')
 # echo $grepresponse
 # string comparisons made by = and integer by -eq !!!
+source ~/.bashrc
 if [ "$grepresponse" = "notebook" ]
 then
     docker start notebook
