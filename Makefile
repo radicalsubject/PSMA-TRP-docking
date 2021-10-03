@@ -60,7 +60,7 @@ notebook:
 
 #  creates or updates vina env
 env:
-	-docker exec -ti notebook sh -c "bash ./work/maintenance/env_preparations.sh"
+	-docker exec -ti notebook /bin/bash -c "bash ./work/maintenance/env_preparations.sh"
 
 #  updates env and launches vina notebook
 vina:
