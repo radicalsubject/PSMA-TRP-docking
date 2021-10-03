@@ -10,7 +10,7 @@ else
     if [ $# -eq 0 ] 
     then
         read -p "set password: " password
-        hashcode=$(python ./work/maintenance/psswdgen.py $password)
+        hashcode=$(python ./maintenance/psswdgen.py $password)
         # echo $password
         # echo $hashcode
         docker run -d -p 40001:8888 --name notebook -e NB_USER=asya -w /home/asya -e CHOWN_HOME=yes -v "${PWD}":/home/asya/work -e GRANT_SUDO=yes --user root jupyter/scipy-notebook jupyter-notebook --NotebookApp.password=$hashcode --allow-root &
