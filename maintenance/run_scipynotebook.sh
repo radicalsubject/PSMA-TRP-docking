@@ -3,7 +3,6 @@
 grepresponse=$(docker ps -a | grep notebook | grep -oE '[^ ]+$')
 # echo $grepresponse
 # string comparisons made by = and integer by -eq !!!
-
 source ~/.bashrc
 if [ "$grepresponse" = "notebook" ]
 then
@@ -21,7 +20,8 @@ else
         docker run -d -p 40001:8888 --name notebook -e NB_USER=asya -w /home/asya -e CHOWN_HOME=yes -v "${PWD}":/home/asya/work -e GRANT_SUDO=yes --user root jupyter/scipy-notebook jupyter-notebook --NotebookApp.password=$hashcode --allow-root 
         #&> /dev/null
         # use --rm switch i.e., container gets destroyed automatically as soon as it is stopped
-        sleep 20
+        # need to sleep until previous command is executed and container is booted
+        sleep 10
         echo "creating vina env"
         docker exec -ti notebook sh -c "bash /home/asya/work/maintenance/env_preparations.sh"
 
@@ -29,7 +29,8 @@ else
         docker run -d -p 40001:8888 --rm --name notebook -e NB_USER=asya -w /home/asya -e CHOWN_HOME=yes -v "${PWD}":/home/asya/work -e GRANT_SUDO=yes --user root jupyter/scipy-notebook jupyter-notebook --NotebookApp.password=$1 --allow-root 
         #&> /dev/null
         # use --rm switch i.e., container gets destroyed automdcally as soon as it is stopped
-        sleep 20
+                # need to sleep until previous command is executed and container is booted
+        sleep 10
         docker exec -ti notebook sh -c "bash /home/asya/work/maintenance/env_preparations.sh"
     fi
 fi
