@@ -8,7 +8,7 @@ THIS_FILE := $(lastword $(MAKEFILE_LIST))
 MONGOD_STARTED := $(shell systemctl is-active mongod)
 DOCKER_CMD := docker
 DOCKER_COMPOSE_DEV_CMD := docker-compose -f docker-compose.yml -f docker-compose.development.yml
-SHELL_CMD := source ./maintenance/env_preparations.sh
+SHELL_CMD := bash ./work/maintenance/env_preparations.sh
 
 ## COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
@@ -60,7 +60,7 @@ notebook:
 
 #  creates or updates vina env
 env:
-	-docker exec -ti notebook /bin/bash -c "bash ./work/maintenance/env_preparations.sh"
+	-docker exec -ti notebook /bin/bash -c "$(SHELL_CMD) $(c)"
 
 #  launches vina notebook
 vina:
