@@ -7,6 +7,7 @@ if len(sys.argv)==2:
 else:
     password = input("type password: ")
 
+
 hashed_argon2 = passwd(password)
 hashed_sha1 = passwd(password, 'sha1')
 # print(hashed_argon2)
