@@ -64,7 +64,7 @@ env:
 
 #  launches vina notebook
 vina:
-	-docker exec -ti notebook /bin/bash -c "conda run -n vina /bin/bash -c 'source ./work/maintenance/run_vina_notebook.sh'"
+	-docker exec -ti notebook /bin/bash -c "conda run -n vina --no-capture-output /bin/bash -c 'source ./work/maintenance/run_vina_notebook.sh'"
 
 #  logs
 logs:
@@ -77,3 +77,4 @@ ps:
 #  stops docker notebook container and removes it
 tranclucate:
 	-docker kill notebook &> /dev/null && docker rm notebook -f &> /dev/null
+
