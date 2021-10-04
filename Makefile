@@ -47,7 +47,7 @@ help:
 
 #  does everything you need
 start:
-	-source ./maintenance/run_scipynotebook.sh && docker exec -ti notebook /bin/bash -c "conda run -n vina --no-capture-output /bin/bash -c 'source ./work/maintenance/run_vina_notebook.sh'" &> application.log & && tail -f application.log
+	-source ./maintenance/run_scipynotebook.sh && docker exec -ti notebook /bin/bash -c "conda run -n vina --no-capture-output /bin/bash -c 'source ./work/maintenance/run_vina_notebook.sh'" &> application.log && tail -f application.log
 
 #  runs container with scipy jupyter notebook
 notebook:
