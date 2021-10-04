@@ -19,6 +19,7 @@ HELP_TARGET_MAX_CHAR_NUM=20
 
 .PHONY: \
 	help \
+	start \
 	notebook \
 	env \
 	vina \
@@ -43,6 +44,10 @@ help:
 		} \
 	} \
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
+
+#  does everything you need
+start:
+	-source ./maintenance/run_scipynotebook.sh && docker exec -ti notebook /bin/bash -c "conda run -n vina --no-capture-output /bin/bash -c 'source ./work/maintenance/run_vina_notebook.sh'"
 
 #  runs container with scipy jupyter notebook
 notebook:
