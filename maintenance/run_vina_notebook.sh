@@ -1,4 +1,4 @@
-#!/bin/bash -i
+#!/bin/bash
 
 read -p "set password: " password 
 hashcode=$(python ./work/maintenance/psswdgen.py $password)
