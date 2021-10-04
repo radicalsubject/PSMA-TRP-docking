@@ -7,6 +7,7 @@ CONDA_PATH := $(conda info | grep -i 'base environment' | awk '{print $4}')
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 MONGOD_STARTED := $(shell systemctl is-active mongod)
 SHELL_CMD := bash ./work/maintenance/env_preparations.sh
+DOCKER_CMD := docker
 
 ## COLORS
 GREEN  := $(shell tput -Txterm setaf 2)
